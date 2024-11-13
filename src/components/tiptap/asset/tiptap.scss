@@ -1,0 +1,527 @@
+/* Basic editor styles */
+
+.tiptap-frame {
+  --white: #FFF;
+  --black: #0d0d0d;
+  --black-contrast: #110F0E;
+  --gray-0: #cacad6;
+  --gray-1: rgba(61, 37, 20, .05);
+  --gray-2: rgba(61, 37, 20, .08);
+  --gray-3: rgba(61, 37, 20, .12);
+  --gray-4: rgba(61, 37, 20, .20);
+  --sky : #477bff;
+  --purple: #6A00F5;
+  --purple-contrast: #5800CC;
+  --shadow: 0px 12px 33px 0px rgba(0, 0, 0, .06), 0px 3.618px 9.949px 0px rgba(0, 0, 0, .04);
+  --color-border: rgba(53, 38, 28, .3);
+  --editor-bold: url(icons/editor_bold.svg);
+  --editor-h1: url(icons/editor_h1.svg);
+  --editor-h2: url(icons/editor_h2.svg);
+  --editor-h3: url(icons/editor_h3.svg);
+  --editor-image: url(icons/editor_image.svg);
+  --editor-italic: url(icons/editor_italic.svg);
+  --editor-line: url(icons/editor_line.svg);
+  --editor-link: url(icons/editor_link.svg);
+  --editor-list-bulleted: url(icons/editor_list_bulleted.svg);
+  --editor-list-numbered: url(icons/editor_list_numbered.svg);
+  --editor-strike: url(icons/editor_strike.svg);
+  --editor-underline: url(icons/editor_underline.svg);
+  --editor-code-block: url(icons/editor_codeblock.svg);
+  --editor-html: url(icons/editor_html.svg);
+  --editor-blockquote: url(icons/editor_blockquote.svg);
+  --editor-color-text: url(icons/editor_color_text.svg);
+  --editor-color-reset: url(icons/editor_color_reset.svg);
+  --editor-highlight-reset: url(icons/editor_highlight_reset.svg);
+  --editor-clear: url(icons/editor_clear.svg);
+  --editor-table: url(icons/editor_table.svg);
+  --editor-align-left: url(icons/editor_align_left.svg);
+  --editor-align-right: url(icons/editor_align_right.svg);
+  --editor-align-center: url(icons/editor_align_center.svg);
+  --editor-video: url(icons/editor_video.svg);
+  --editor-menu: url(icons/editor_menu.svg);
+  --editor-subject: url(icons/editor_subject.svg);
+  --editor-font-menu: url(icons/editor_font_menu.svg);
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    margin: 0;
+  }
+
+  /* 여백 초기화 */
+  body,
+  div,
+  ul,
+  li,
+  dl,
+  dd,
+  dt,
+  ol,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  input,
+  fieldset,
+  legend,
+  p,
+  select,
+  table,
+  th,
+  td,
+  tr,
+  textarea,
+  button,
+  form,
+  figure,
+  figcaption {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* a 링크 초기화 */
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  /* 폰트 스타일 초기화 */
+  address {
+    font-style: normal;
+  }
+
+  /* 블릿기호 초기화 */
+  ul,
+  li,
+  ol {
+    list-style: none;
+  }
+
+  /* 테이블 초기화 */
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    th {
+      font-weight: inherit;
+    }
+  }
+
+  /* 버튼초기화 */
+  button {
+    border: 0;
+  }
+
+  /* 에디터 외부 테두리 */
+  .ProseMirror {
+    min-height: 600px;
+    padding: 15px 0;
+    padding-bottom: 1.25rem;
+  }
+
+  /* tiptap 포커스 테두리 제거 */
+  .ProseMirror-focused {
+    border: none !important;
+    outline: none !important;
+  }
+
+  /* tiptap css 영역 */
+  .tiptap {
+
+    :first-child {
+      margin-top: 0;
+    }
+
+    p {
+      padding: 0.375rem 0;
+    }
+
+    pre {
+      background: var(--black);
+      border-radius: 0.5rem;
+      color: var(--white);
+      font-family: inherit;
+      padding: 0.75rem 1rem;
+      line-height: 1.6rem;
+
+      code {
+        background: none;
+        color: inherit;
+        font-size: 1rem;
+        padding: 0;
+      }
+    }
+
+    ul,
+    ol {
+      padding: 0 2rem;
+
+      p {
+        padding: 0;
+      }
+    }
+
+    ul > li {
+      list-style: disc;
+
+      li {
+        list-style: circle;
+      }
+    }
+
+    ol > li {
+      list-style: decimal;
+    }
+
+    em {
+      font-style: italic;
+    }
+
+    blockquote {
+      border-left: 4px solid var(--color-border);
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 0.625rem;
+    }
+
+    a {
+      text-decoration: underline;
+      color: var(--sky);
+    }
+
+    iframe {
+      padding: 0.625rem 0;
+    }
+
+    img {
+      display: block;
+      height: auto;
+      margin: 1.5rem 0;
+      max-width: 100%;
+
+      &.ProseMirror-selectednode {
+        outline: 3px solid var(--purple);
+      }
+    }
+
+    /* Table-specific styling */
+    table {
+      border-collapse: collapse;
+      margin: 0;
+      overflow: hidden;
+      table-layout: fixed;
+      width: 100%;
+
+      td,
+      th {
+        border: 1px solid var(--gray-3);
+        box-sizing: border-box;
+        min-width: 1em;
+        padding: 6px 8px;
+        position: relative;
+        vertical-align: top;
+
+        > * {
+          margin-bottom: 0;
+        }
+      }
+
+      th {
+        background-color: var(--gray-1);
+        font-weight: bold;
+        text-align: left;
+      }
+
+      .selectedCell:after {
+        background: var(--gray-2);
+        content: "";
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        pointer-events: none;
+        position: absolute;
+        z-index: 2;
+      }
+
+      .column-resize-handle {
+        background-color: var(--purple);
+        bottom: -2px;
+        pointer-events: none;
+        position: absolute;
+        right: -2px;
+        top: 0;
+        width: 4px;
+      }
+    }
+
+    .tableWrapper {
+      margin: 1.5rem 0;
+      overflow-x: auto;
+    }
+
+    &.resize-cursor {
+      cursor: col-resize;
+    }
+  }
+
+
+  /* 커서 사이즈 조절 */
+  .resize-cursor {
+    td:has(.column-resize-handle) {
+      border-right: 2px solid var(--sky) !important;
+      cursor: col-resize;
+    }
+  }
+
+  /* YoutubeExt 동영상 드래그 관련 */
+  div[data-youtube-video] {
+    cursor: move;
+
+    iframe {
+      border: 0.5rem solid var(--gray-0);
+      display: block;
+      min-height: 200px;
+      min-width: 200px;
+      aspect-ratio: 16/9;
+      outline: 0 solid transparent;
+    }
+
+    &.ProseMirror-selectednode iframe {
+      outline: 3px solid var(--purple);
+      transition: outline 0.15s;
+    }
+  }
+
+  /* 동영상 드래그 관련 */
+  div[data-video] {
+    cursor: move;
+
+    video {
+      border: 0.5rem solid var(--gray-0);
+      display: block;
+      outline: 0 solid transparent;
+    }
+
+    &.ProseMirror-selectednode video{
+      outline: 3px solid var(--purple);
+      transition: outline 0.15s;
+    }
+  }
+
+  /* Toolbar */
+  .toolbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem 0.75rem 1.5rem;
+    border-bottom: 2px solid var(--gray-0);
+
+    .toolbar-item-box {
+      display: flex;
+      align-items: start;
+      justify-content: start;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+
+
+      .toolbar-item-separator {
+        width: 1px;
+        height: 25px;
+        margin: 0 15px;
+        background-color: var(--gray-0);
+      }
+
+      select {
+        height: 26px;
+        padding: 0 10px;
+        border: 1px solid var(--gray-0);
+        border-radius: 4px;
+        background-color: var(--white);
+        cursor: pointer;
+      }
+
+      button {
+        width: 26px;
+        height: 26px;
+        background-size: 22px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: var(--white);
+      }
+
+      /* 버튼 아이콘 */
+      .is-active {
+        background-color: var(--gray-3)
+      }
+
+
+
+    }
+  }
+
+
+  /* Floating menu */
+  .floating-menu {
+    display: flex;
+    background-color: var(--gray-3);
+    padding: 0.1rem;
+    border-radius: 0.5rem;
+
+    button {
+      background-color: var(--white);
+      padding: 8px;
+      border-radius: 8px;
+      width: 20px;
+      height: 20px;
+      background-size: 18px;
+      background-repeat: no-repeat;
+      background-position: center;
+
+      &:hover {
+        background-color: var(--gray-3);
+      }
+
+      &.is-active {
+        background-color: var(--gray-3);
+
+        &:hover {
+          background-color: var(--gray-4);
+        }
+      }
+    }
+  }
+
+  /* Bubble menu */
+  .bubble-menu {
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    display: flex;
+    padding: 8px;
+    margin: -5px;
+
+    button {
+      background-color: var(--white);
+      padding: 8px;
+      border-radius: 8px;
+      width: 20px;
+      height: 20px;
+      background-size: 18px;
+      background-repeat: no-repeat;
+      background-position: center;
+
+      &.bubble-table {
+        width: auto;
+        height: auto;
+      }
+
+      &:hover {
+        background-color: var(--gray-3);
+      }
+
+      &.is-active {
+        background-color: var(--gray-3);
+
+        &:hover {
+          background-color: var(--gray-4);
+        }
+      }
+    }
+  }
+
+}
+
+.button-h1 {
+  background-image: var(--editor-h1)
+}
+.button-h2 {
+  background-image: var(--editor-h2)
+}
+.button-h3 {
+  background-image: var(--editor-h3)
+}
+.button-bold {
+  background-image: var(--editor-bold)
+}
+.button-italic {
+  background-image: var(--editor-italic)
+}
+.button-underline {
+  background-image: var(--editor-underline)
+}
+.button-strike {
+  background-image: var(--editor-strike)
+}
+.button-list-bulleted {
+  background-image: var(--editor-list-bulleted)
+}
+.button-list-numbered {
+  background-image: var(--editor-list-numbered)
+}
+.button-align-left {
+  background-image: var(--editor-align-left)
+}
+.button-align-right {
+  background-image: var(--editor-align-right)
+}
+.button-align-center {
+  background-image: var(--editor-align-center)
+}
+.button-image {
+  background-image: var(--editor-image);
+}
+.button-line {
+  background-image: var(--editor-line);
+}
+.button-link {
+  background-image: var(--editor-link);
+}
+.button-code-block {
+  background-image: var(--editor-code-block);
+}
+.button-html {
+  background-image: var(--editor-html);
+}
+.button-blockquote {
+  background-image: var(--editor-blockquote);
+}
+.button-font-color-reset {
+  background-image: var(--editor-color-reset);
+}
+.button-highlight-reset {
+  background-image: var(--editor-highlight-reset);
+}
+.button-clear {
+  background-image: var(--editor-clear);
+}
+.button-table {
+  background-image: var(--editor-table);
+}
+.button-video {
+  background-image: var(--editor-video);
+}
+.button-menu {
+  background-image: var(--editor-menu);
+}
+.button-subject {
+  background-image: var(--editor-subject);
+}
+.button-font-menu {
+  background-image: var(--editor-font-menu);
+}
+.button-link {
+  background-image: var(--editor-link);
+}

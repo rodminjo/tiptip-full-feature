@@ -1,0 +1,92 @@
+/* Popover.css */
+.popover {
+  position: absolute !important;
+  background-color: #fff !important;
+  padding: 10px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+  z-index: 1000 !important;
+  display: flex !important;
+  gap: 5px !important;
+}
+
+
+.popover.selector {
+  position: absolute;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.popover.selector .row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.popover.selector label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.popover.selector button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: auto !important;
+  height: auto !important;
+}
+
+.popover input[type="text"] {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 150px;
+  flex-grow: 1;
+}
+
+.popover input[type="number"] {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 150px;
+  text-align: center;
+  flex-grow: 1;
+}
+
+
+
+/* 화살표 제거 */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  margin: 0;
+}
+
+.popover.image-selector input[type="file"] {
+  display: none;
+}
+
+.popover.selector .url-button {
+  background-color: var(--gray-3) !important;
+}
+
+.popover.selector .upload-button {
+  flex-grow: 1;
+  background-color: var(--gray-3) !important;
+}
+
+.popover.image-selector .separator {
+  border: none;
+  border-top: 0 solid var(--gray-0); /* 구분선 색상 */
+  margin: 1px 0;
+}
+
