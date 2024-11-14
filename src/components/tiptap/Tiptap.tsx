@@ -104,7 +104,6 @@ const Tiptap = forwardRef((props: TiptapProps, ref) => {
 
     useEffect(() => {
         editor && editor.setEditable(isEditMode)
-
     }, [isEditMode]);
 
 

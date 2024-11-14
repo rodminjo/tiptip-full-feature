@@ -2,7 +2,6 @@ import React from "react";
 import {BubbleMenuPluginProps} from "@tiptap/extension-bubble-menu";
 import {BubbleMenu} from "@tiptap/react";
 import {FuncName, getTiptapButtonComponent} from "./TiptapButtonMaker";
-import LinkAdder from "./component/LinkAdder";
 
 interface BubbleMenuProps {
     editor: BubbleMenuPluginProps['editor'];
@@ -38,7 +37,6 @@ const DefaultBubbleMenu = (props:BubbleMenuProps) => {
                         )
                     })
                 }
-                <LinkAdder editor={editor} isToolbar={false} />
             </div>
         </BubbleMenu>
     )

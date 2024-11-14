@@ -4,6 +4,11 @@ import TiptapButton from "./component/TiptapButton";
 import FontColorPicker from "./component/FontColorPicker";
 import FontSizeSelector from "./component/FontSizeSelector";
 import FontFamilySelector from "./component/FontFamilySelector";
+import HighlightColorPicker from "./component/HighlightColorPicker";
+import LinkAdder from "./component/LinkAdder";
+import ImageSelector from "./component/ImageSelector";
+import VideoAdder from "./component/VideoAdder";
+import HtmlViewer from "./component/HtmlViewer";
 
 export enum FuncName {
     Bold = 'button-bold',
@@ -30,6 +35,11 @@ export enum FuncName {
     Menu = 'button-menu',
     Subject = 'button-subject',
     FontMenu = 'button-font-menu',
+    Link = "button-link",
+    Image = "button-image",
+    Video = "button-video",
+    Html = "button-html",
+    Seperator = "toolbar-item-separator"
 }
 
 
@@ -196,9 +206,25 @@ export const FuncMap: Map<FuncName, React.FC<{ editor: Editor }>> = new Map([
     [FuncName.FontFamily, ({ editor }) => (
         <FontFamilySelector key={FuncName.FontFamily} editor={editor} />
     )],
-
+    [FuncName.Highlight, ({editor})=>(
+        <HighlightColorPicker key={FuncName.Highlight} editor={editor} />
+    )],
+    [FuncName.Link, ({editor})=>(
+        <LinkAdder key={FuncName.Link} editor={editor} />
+    )],
+    [FuncName.Image, ({editor})=>(
+        <ImageSelector key={FuncName.Image} editor={editor} />
+    )],
+    [FuncName.Video, ({editor})=>(
+        <VideoAdder key={FuncName.Video} editor={editor} />
+    )],
+    [FuncName.Html, ({editor})=>(
+        <HtmlViewer key={FuncName.Html} editor={editor}/>
+    )],
+    [FuncName.Seperator, ({editor})=> (
+        <div key={Math.random()} className="toolbar-item-separator"/>
+    )]
 ]);
-
 
 export const getTiptapButtonComponent = (name: FuncName, editor: Editor) => {
     let map = FuncMap.get(name);

@@ -3,10 +3,9 @@ import {Editor} from "@tiptap/react";
 
 interface LinkAdderProps {
     editor : Editor
-    isToolbar : boolean
 }
 
-const LinkAdder = ({editor, isToolbar}:LinkAdderProps) => {
+const LinkAdder = ({editor}:LinkAdderProps) => {
     const [isPopoverVisible, setIsPopoverVisible] = useState(false);
     const [linkUrl, setLinkUrl] = useState<string>("");
     const [linkContent, setLinkContent] = useState<string>("");
@@ -17,7 +16,7 @@ const LinkAdder = ({editor, isToolbar}:LinkAdderProps) => {
         const href = linkUrl;
         const text = linkContent;
 
-        if (!href || (isToolbar && !text)) return;
+        if (!href || !text) return;
 
         const { state } = editor;
         const { selection } = state;
